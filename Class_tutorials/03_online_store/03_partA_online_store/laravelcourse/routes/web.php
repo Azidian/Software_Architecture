@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
 
 // Route variables and concatenation
 $homeRoute = '/';
@@ -30,5 +30,5 @@ Route::get($productRoute.'/{id}', [ProductController::class, 'show'])->name('pro
 
 // Cart routes
 Route::get($cartRoute, [CartController::class, 'index'])->name('cart.index');
-Route::get($cartRoute . '/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::get($cartRoute . '/removeAll', [CartController::class, 'removeAll'])->name('cart.removeAll');
+Route::get($cartRoute.'/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get($cartRoute.'/removeAll', [CartController::class, 'removeAll'])->name('cart.removeAll');
