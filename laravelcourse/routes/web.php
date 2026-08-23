@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ImageNotDIController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 // Route variables and concatenation
 $homeRoute = '/';
@@ -34,13 +34,13 @@ Route::get($productRoute.'/{id}', [ProductController::class, 'show'])->name('pro
 
 // Cart routes
 Route::get($cartRoute, [CartController::class, 'index'])->name('cart.index');
-Route::get($cartRoute . '/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::get($cartRoute . '/removeAll', [CartController::class, 'removeAll'])->name('cart.removeAll');
+Route::get($cartRoute.'/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get($cartRoute.'/removeAll', [CartController::class, 'removeAll'])->name('cart.removeAll');
 
 // Image storage routes (Dependency Inversion)
 Route::get($imageRoute, [ImageController::class, 'index'])->name('image.index');
-Route::post($imageRoute . '/save', [ImageController::class, 'save'])->name('image.save');
+Route::post($imageRoute.'/save', [ImageController::class, 'save'])->name('image.save');
 
 // Image storage routes (Without Dependency Inversion)
 Route::get($imageNotDiRoute, [ImageNotDIController::class, 'index'])->name('imagenotdi.index');
-Route::post($imageNotDiRoute . '/save', [ImageNotDIController::class, 'save'])->name('imagenotdi.save');
+Route::post($imageNotDiRoute.'/save', [ImageNotDIController::class, 'save'])->name('imagenotdi.save');
