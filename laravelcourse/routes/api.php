@@ -3,12 +3,7 @@
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\ProductApiControllerV2;
 use App\Http\Controllers\Api\ProductApiControllerV3;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
 
 $apiV1ProductRoute = '/products';
 $apiV2ProductRoute = '/v2/products';
